@@ -1,0 +1,7 @@
+Stream Video 
+https://github.com/nchutchind/Streaming-Media-Cordova-Plugin.git 
+List keyword 
+http://phonegap-plugins.com/keywords/video
+
+#Non registration package cordova 
+meteor add cordova:org.apache.cordova.plugin.Chromecast@https://github.com/VersoSolutions/CordovaClipboard/tarball/03fe48b62411cbff22229ca13cc3ac8b282f7945

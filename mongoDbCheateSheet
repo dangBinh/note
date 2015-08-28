@@ -1,0 +1,39 @@
+# Doc for Replica Set 
+In mongoDB offical page http://docs.mongodb.org/manual/tutorial/deploy-replica-set/
+In meteorhacks https://meteorhacks.com/mongodb-replica-sets-with-meteor
+In document of metoerhacks https://docs.google.com/document/d/1rJ1Hi6Q9oQXPRrROJkL9xO-CQR7Unk1mPN4SHtSiY08/edit#heading=h.wivau77ttb0a
+
+# Using mongdb oplog in meteor
+Step 1: mongod --dbpath=/home/dangbinh/workspace/prv --replSet gaming // set name for Replica mongdb 
+Step 2 var config = {_id: "gaming", members: [{_id: 1, host: "127.0.0.1:27017"}]}
+rs.initiate(config)
+Step 4: rs.initiate(config) // consist current member in cofig 
+Step 5: export MONGO_URL=mongodb://localhost:27017/gaming
+export OPLOG_URL=mongodb://localhost:27017/gaming_op
+Step 6: meteor
+
+#Start meteor with mongodb 
+MONGO_URL=mongodb://localhost:27017/gaming meteor
+
+#No config file 
+mongod --dbpath=/home/dangbinh/workspace/prv --replSet gaming
+
+#Config Mongo DB 
+http://docs.mongodb.org/manual/administration/configuration/
+
+#My config in MongoDB 
+net:
+   bindIp: 127.0.0.1
+   port: 27017
+storage:
+   dbPath: /home/dangbinh/workspace/prv
+systemLog:
+   destination: file
+   path: "/home/dangbinh/workspace/prv/log/db.log"
+   logAppend: true
+storage:
+   journal:
+      enabled: true
+replication:
+   replSetName: gaming
+
